@@ -55,7 +55,3 @@ Screenshots
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-vbnet
-Copy code
-
-In the above `README.md` file, I've assumed that you have a directory named `screenshots` where you store the screenshots of your application. You can replace the placeholders with actual screenshots of your project.
