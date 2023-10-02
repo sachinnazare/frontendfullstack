@@ -28,6 +28,7 @@ export default function Student() {
       body:JSON.stringify(student)
 
   }).then(()=>{
+    alert("New student added")
     console.log("New Student added")
   })
 }
