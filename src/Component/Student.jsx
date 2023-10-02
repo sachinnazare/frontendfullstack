@@ -1,22 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import { Container ,Paper,Button} from '@material-ui/core';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
-    },
-  },
-}));
 
 export default function Student() {
-    const paperStyle={padding:'50px 20px', width:600,margin:"20px auto"}
     const[name,setName]=useState('')
     const[address,setAddress]=useState('')
     const[students,setStudents]=useState([])
-     const classes = useStyles();
 
   const handleClick=(e)=>{
     e.preventDefault()
@@ -42,46 +29,51 @@ useEffect(()=>{
 )
 },[])
   return (
-
-    <Container>
-        <Paper elevation={3} style={paperStyle}>
-            <h1 style={{color:"blue"}}><u>Add Student</u></h1>
-
-    <form className={classes.root} noValidate autoComplete="off">
-    
-      <TextField id="outlined-basic" label="Student Name" variant="outlined" fullWidth 
-      value={name}
-      onChange={(e)=>setName(e.target.value)}
-      />
-      <TextField id="outlined-basic" label="Student Adress" variant="outlined" fullWidth
-      value={address}
-      onChange={(e)=>setAddress(e.target.value)}
-      />
-      <Button variant="contained" color="secondary" onClick={handleClick}>
-  Submit
-</Button>
-    </form>
-   
-    </Paper>
-    <h1>Students</h1>
-
-    <Paper elevation={3} style={paperStyle}>
-
-      {students.map(student=>(
-        <Paper elevation={6} style={{margin:"10px",padding:"15px", textAlign:"left"}} key={student.id}>
-         Id:{student.id}<br/>
-         Name:{student.name}<br/>
-         Address:{student.address}
-
-        </Paper>
-      ))
-}
-
-
-    </Paper>
-
-
-
-    </Container>
+    <div className="container-sm">
+        <div className="card mt-5">
+            <div className="card-body">
+                <h2 style={{color: 'red', font_family:'Georgia, "Times New Roman", Times, serif'}}><u>Add Student</u></h2>
+               <form>
+                <div className="mb-3">
+                  <label htmlFor="studentName" className="form-label">Student Name</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="studentName"
+                    placeholder="Student Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="studentAddress" className="form-label">Student Address</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="studentAddress"
+                    placeholder="Student Address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary" onClick={handleClick}>Submit</button>
+              </form>
+            </div>
+        </div>
+        <h1 className="mt-5">Students</h1>
+        <div className="card-body">
+        <div className="card" style={{ margin: '10px', padding: '15px', textAlign: 'left', width: '18 rem'}}>
+          {students.map((student) => (
+            <div className="card" key={student.id}>
+              <div className="card-body">
+                <h5 className="card-title">Id: {student.id}</h5>
+                <p className="card-text mb-2 text-body-secondary">Name: {student.name}</p>
+                <p className="card-text mb-2 text-body-secondary">Address: {student.address}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        </div>
+    </div>
   );
 }

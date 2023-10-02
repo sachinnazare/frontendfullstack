@@ -1,0 +1,15 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.app-bar {
+    background-color: #6d97e6;
+    color: white;
+    padding: auto;
+}
+
+.title {
+    flex-grow: 1;
+}
